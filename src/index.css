@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    @apply light;
+  }
+
+  body {
+    @apply antialiased;
+  }
+
+  .dark {
+    @apply bg-gray-900 text-white;
+  }
+
+  .light {
+    @apply bg-white text-gray-900;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    @apply bg-gradient-to-br from-yellow-100 via-yellow-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900;
+  }
+
+  .glass-card {
+    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700 text-white shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-2 border-yellow-500 hover:bg-yellow-50 dark:hover:bg-gray-700;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white transition-colors duration-200;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden;
+  }
+
+  .feature-card {
+    @apply p-6 glass-card rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-yellow-100/50 dark:border-gray-700/50;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-600 to-yellow-400 dark:from-yellow-400 dark:to-yellow-200;
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-yellow-400 dark:bg-yellow-600 rounded-full;
+}
+
+/* Form elements */
+.form-group {
+  @apply space-y-2;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 dark:text-gray-300;
+}
+
+.textarea {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-lg resize-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white transition-colors duration-200;
+}
+
+/* Content sections */
+.section {
+  @apply py-16 px-4 sm:px-6 lg:px-8;
+}
+
+.section-title {
+  @apply text-3xl sm:text-4xl font-extrabold text-center mb-12;
+}
+
+/* Hero section specific */
+.hero-title {
+  @apply text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight;
+}
+
+.hero-subtitle {
+  @apply mt-6 text-xl sm:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto;
+}
+
+/* Feature cards */
+.feature-icon {
+  @apply w-12 h-12 text-yellow-500 dark:text-yellow-400 mb-4;
+}
+
+.feature-title {
+  @apply text-xl font-semibold mb-2;
+}
+
+.feature-description {
+  @apply text-gray-600 dark:text-gray-300;
+}
+
+/* Content history cards */
+.history-card {
+  @apply p-6 card space-y-4 hover:transform hover:scale-[1.01] transition-all duration-300;
+}
+
+.history-title {
+  @apply text-xl font-semibold text-gray-900 dark:text-white;
+}
+
+.history-content {
+  @apply text-gray-600 dark:text-gray-300 leading-relaxed;
+}
+
+/* Responsive utilities */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Loading states */
+.loading-skeleton {
+  @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded;
+}
+
+/* Toast customization */
+.custom-toast {
+  @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-lg rounded-lg;
+}
